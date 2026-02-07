@@ -38,6 +38,7 @@ import {
   mockPRStatusDistribution,
   mockScoreDistribution,
 } from "@/lib/mock-data";
+import { useRouter } from "next/navigation";
 
 const container = {
   hidden: { opacity: 0 },
@@ -140,6 +141,7 @@ function CustomTooltip({ active, payload, label }: any) {
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
 export default function DashboardPage() {
+  const router = useRouter();
   const recentPRs = mockPullRequests
     .filter((pr) => pr.state === "open")
     .slice(0, 4);
@@ -182,7 +184,7 @@ export default function DashboardPage() {
         {/* Recent PRs */}
         <motion.div variants={item} className="lg:col-span-3">
           <Card className="border-border bg-[#0a0a0a]">
-            <CardHeader className="pb-3">
+            <CardHeader>
               <CardTitle className="flex items-center justify-between text-base font-medium text-white">
                 Recent Pull Requests
                 <Badge
@@ -197,7 +199,10 @@ export default function DashboardPage() {
               {recentPRs.map((pr) => (
                 <div
                   key={pr.id}
-                  className="flex items-center justify-between rounded-lg border border-border bg-[#111111] p-4 transition-all duration-200 hover:border-[#333333]"
+                  className="flex items-center cursor-pointer justify-between rounded-lg border border-border bg-[#111111] p-4 transition-all duration-200 hover:border-[#333333]"
+                  onClick={() => {
+                    router.push(`/pull-requests/${pr.id}`);
+                  }}
                 >
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
