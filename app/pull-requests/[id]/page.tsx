@@ -368,7 +368,7 @@ export default function PullRequestDetailPage({
           {/* Score overview */}
           <motion.div variants={item}>
             <Card className="border-border bg-[#0a0a0a]">
-              <CardContent className="p-6">
+              <CardContent className="p-6 py-0">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/10 to-indigo-500/10">
@@ -447,7 +447,7 @@ export default function PullRequestDetailPage({
                         key={i}
                         className={`border ${config.border} ${config.bg}`}
                       >
-                        <CardContent className="p-4">
+                        <CardContent className="p-4 py-0">
                           <div className="flex items-start gap-3">
                             <Icon
                               className={`mt-0.5 h-4 w-4 shrink-0 ${config.color}`}
@@ -489,7 +489,7 @@ export default function PullRequestDetailPage({
               <TabsContent value="suggestions" className="mt-4 space-y-3">
                 {review.suggestions.map((suggestion, i) => (
                   <Card key={i} className="border-border bg-[#0a0a0a]">
-                    <CardContent className="p-4">
+                    <CardContent className="p-4 py-0">
                       <h4 className="text-sm font-medium text-white">
                         {suggestion.title}
                       </h4>
@@ -519,7 +519,7 @@ export default function PullRequestDetailPage({
               {/* Alignment checks */}
               <TabsContent value="alignment" className="mt-4">
                 <Card className="border-border bg-[#0a0a0a]">
-                  <CardHeader className="pb-2">
+                  <CardHeader>
                     <CardTitle className="text-sm font-medium text-white">
                       Organization Alignment Checks
                     </CardTitle>
